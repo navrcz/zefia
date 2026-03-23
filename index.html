@@ -1074,11 +1074,11 @@ footer {
           </div>
         </a>
 
-        <a href="#" id="emailCard" class="contact-card" onclick="return false;">
+        <a href="#" id="emailCard" class="contact-card">
           <div class="contact-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0C932" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 4 12 13 2 4"/></svg></div>
           <div>
             <div class="contact-card-label">E-mail</div>
-            <div class="contact-card-value" id="emailValue"></div>
+            <div class="contact-card-value" id="emailValue">info(at)zefia.cz</div>
           </div>
         </a>
 
@@ -1163,17 +1163,16 @@ footer {
 
 <script>
 // Email ochrana proti scrapování
-(function(){
+document.addEventListener('DOMContentLoaded', function(){
   var u = 'info'; var d = 'zefia.cz';
   var full = u + '@' + d;
   var card = document.getElementById('emailCard');
   var val = document.getElementById('emailValue');
-  val.textContent = full;
-  card.href = 'mail' + 'to:' + full;
-  card.onclick = null;
+  if (val) val.textContent = full;
+  if (card) { card.href = 'mail' + 'to:' + full; card.onclick = null; }
   var form = document.getElementById('contactForm');
-  form.action = 'https://formsubmit.co/' + full;
-})();
+  if (form) form.action = 'https://formsubmit.co/' + full;
+});
 
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
