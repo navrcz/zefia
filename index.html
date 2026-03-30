@@ -346,10 +346,12 @@ nav {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px 28px;
+  padding: 0;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -361,6 +363,7 @@ nav {
   transform: scaleX(0);
   transition: transform 0.4s ease;
   transform-origin: left;
+  z-index: 2;
 }
 
 .service-card:hover {
@@ -370,6 +373,21 @@ nav {
 }
 
 .service-card:hover::before { transform: scaleX(1); }
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card:hover .service-img {
+  opacity: 0.85;
+}
+
+.service-body {
+  padding: 28px 28px 32px;
+}
 
 .service-icon {
   width: 52px; height: 52px;
@@ -882,6 +900,8 @@ footer {
     <div class="services-grid">
       <!-- ELEKTRO -->
       <div class="service-card">
+        <img src="img-elektro.jpg" alt="Elektrikář pracuje na rozvaděči" class="service-img" loading="lazy">
+        <div class="service-body">
         <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F0C932" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Elektroinstalace</h3>
         <ul class="service-list">
@@ -891,10 +911,13 @@ footer {
           <li>Fotovoltaické elektrárny (FVE)</li>
           <li>Rozvody a rekonstrukce</li>
         </ul>
+        </div>
       </div>
 
       <!-- VODA + TOPENI -->
       <div class="service-card">
+        <img src="img-topeni.jpg" alt="Tepelné čerpadlo u moderního domu" class="service-img" loading="lazy">
+        <div class="service-body">
         <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F0C932" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7S5 9.5 5 14a7 7 0 0014 0c0-4.5-7-11.3-7-11.3z"/><path d="M12 18a3 3 0 01-3-3c0-2 3-5 3-5s3 3 3 5a3 3 0 01-3 3z"/></svg></div>
         <h3>Voda · Topení · Plyn</h3>
         <ul class="service-list">
@@ -903,10 +926,13 @@ footer {
           <li>Topenářské práce a radiátory</li>
           <li>Tepelná čerpadla vč. vyřízení dotace</li>
         </ul>
+        </div>
       </div>
 
       <!-- FESTIVALY -->
       <div class="service-card">
+        <img src="img-festival.jpg" alt="Osvětlení vánočních trhů" class="service-img" loading="lazy">
+        <div class="service-body">
         <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F0C932" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/><line x1="4" y1="5" x2="20" y2="5"/><line x1="4" y1="19" x2="20" y2="19"/></svg></div>
         <h3>Festivalová elektřina</h3>
         <ul class="service-list">
@@ -915,6 +941,7 @@ footer {
           <li>Audio, video a osvětlovací technika</li>
           <li>Vánoční trhy, koncerty, srazy, eventy</li>
         </ul>
+        </div>
       </div>
     </div>
   </div>
